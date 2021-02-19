@@ -44,7 +44,7 @@ public class Commandhat extends EssentialsCommand {
             }
 
             final PlayerInventory inv = user.getBase().getInventory();
-            final ItemStack head = inv.getHelmet();
+            final ItemStack head = inv.getChestplate();
             if (VersionUtil.getServerBukkitVersion().isHigherThan(VersionUtil.v1_9_4_R01) && head != null && head.getEnchantments().containsKey(Enchantment.BINDING_CURSE) && !user.isAuthorized("essentials.hat.ignore-binding")) {
                 user.sendMessage(tl("hatCurse"));
                 return;
@@ -56,14 +56,14 @@ public class Commandhat extends EssentialsCommand {
         }
 
         final PlayerInventory inv = user.getBase().getInventory();
-        final ItemStack head = inv.getHelmet();
+        final ItemStack head = inv.getChestplate();
         if (head == null || head.getType() == Material.AIR) {
             user.sendMessage(tl("hatEmpty"));
         } else if (VersionUtil.getServerBukkitVersion().isHigherThan(VersionUtil.v1_9_4_R01) && head.getEnchantments().containsKey(Enchantment.BINDING_CURSE) && !user.isAuthorized("essentials.hat.ignore-binding")) {
             user.sendMessage(tl("hatCurse"));
         } else {
             final ItemStack air = new ItemStack(Material.AIR);
-            inv.setHelmet(air);
+            inv.setChestplate(air);
             InventoryWorkaround.addItems(user.getBase().getInventory(), head);
             user.sendMessage(tl("hatRemoved"));
         }
