@@ -49,7 +49,7 @@ public class Commandhat extends EssentialsCommand {
                 user.sendMessage(tl("hatCurse"));
                 return;
             }
-            inv.setHelmet(hand);
+            inv.setChestplate(hand);
             inv.setItemInHand(head);
             user.sendMessage(tl("hatPlaced"));
             return;
